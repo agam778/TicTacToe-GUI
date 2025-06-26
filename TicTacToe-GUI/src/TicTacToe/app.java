@@ -333,6 +333,7 @@ public class app extends javax.swing.JFrame {
     private void resetGame() {
         gameOver = false;
         turn = "X";
+        currentturn.setText(p1 + "'s turn (" + turn + ")");
         
         b1.setText("");
         b2.setText("");
