@@ -4,6 +4,12 @@
  */
 package TicTacToe;
 
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import com.formdev.flatlaf.*;
+
+
 /**
  *
  * @author agam7
@@ -11,12 +17,17 @@ package TicTacToe;
 public class app extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(app.class.getName());
-
+  
     /**
      * Creates new form app
      */
     public app() {
         initComponents();
+        askName();
+        setTitle("Tic Tac Toe - " + p1 + " vs " + p2);
+        p1scorelabel.setText(p1 + "'s Score: " + p1score);
+        p2scorelabel.setText(p2 + "'s Score: " + p2score);
+        currentturn.setText(p1 + "'s turn (X)");
     }
 
     /**
@@ -28,47 +39,400 @@ public class app extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        b5 = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
+        b6 = new javax.swing.JButton();
+        b4 = new javax.swing.JButton();
+        b7 = new javax.swing.JButton();
+        b8 = new javax.swing.JButton();
+        b9 = new javax.swing.JButton();
+        newgame = new javax.swing.JButton();
+        p1scorelabel = new javax.swing.JLabel();
+        p2scorelabel = new javax.swing.JLabel();
+        currentturnlabel = new javax.swing.JLabel();
+        currentturn = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLocationByPlatform(true);
+
+        b5.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
+
+        b1.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        b2.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b2ActionPerformed(evt);
+            }
+        });
+
+        b3.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b3ActionPerformed(evt);
+            }
+        });
+
+        b6.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b6ActionPerformed(evt);
+            }
+        });
+
+        b4.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
+
+        b7.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b7ActionPerformed(evt);
+            }
+        });
+
+        b8.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b8ActionPerformed(evt);
+            }
+        });
+
+        b9.setFont(new java.awt.Font("Noto Sans", 1, 48)); // NOI18N
+        b9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b9ActionPerformed(evt);
+            }
+        });
+
+        newgame.setText("New Game");
+        newgame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newgameActionPerformed(evt);
+            }
+        });
+
+        p1scorelabel.setFont(new java.awt.Font("Noto Sans", 0, 16)); // NOI18N
+        p1scorelabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        p1scorelabel.setText("Player One's Score: 0");
+        p1scorelabel.setAlignmentY(0.0F);
+
+        p2scorelabel.setFont(new java.awt.Font("Noto Sans", 0, 16)); // NOI18N
+        p2scorelabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        p2scorelabel.setText("Player Two's Score: 0");
+        p2scorelabel.setAlignmentY(0.0F);
+
+        currentturnlabel.setFont(new java.awt.Font("Noto Sans", 0, 16)); // NOI18N
+        currentturnlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        currentturnlabel.setText("Current Turn:");
+        currentturnlabel.setAlignmentY(0.0F);
+
+        currentturn.setFont(new java.awt.Font("Noto Sans", 0, 16)); // NOI18N
+        currentturn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        currentturn.setText("Player One (X)");
+        currentturn.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p1scorelabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(p2scorelabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(currentturnlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(currentturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(newgame, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 61, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(p1scorelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(p2scorelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentturnlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentturn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(newgame, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private String turn="X";
+    private String p1="";
+    private String p2="";
+    private int p1score=0;
+    private int p2score=0;
+    private boolean gameOver = false;
+    
+    private void askName() {
+        p1=JOptionPane.showInputDialog(this,"Name of the first player:","Name",JOptionPane.INFORMATION_MESSAGE);
+        p2=JOptionPane.showInputDialog(this,"Name of the second player :","Name",JOptionPane.INFORMATION_MESSAGE);
+        
+        if(p1 == null || p1.isEmpty()){
+            p1="Player 1";
+        }
+        if(p2 == null || p2.isEmpty()){
+            p2="Player 2";
+        }
+    }
+
+    private void makeMove(JButton button) {
+        if (gameOver == true || !button.getText().equals("")) {
+            return;
+        }
+        
+        button.setText(turn);
+        if (turn.equals("X")) {
+            button.setForeground(Color.BLUE);
+        } else {
+            button.setForeground(Color.RED);
+        }
+        
+        if (checkWin() == true) {
+            gameOver = true;
+            String winner;
+            if (turn.equals("X")) {
+                winner = p1;
+                p1score = p1score + 1;
+                p1scorelabel.setText(p1 + "'s Score: " + p1score);
+            } else {
+                winner = p2;
+                p2score = p2score + 1;
+                p2scorelabel.setText(p2 + "'s Score: " + p2score);
+            }
+            
+            JOptionPane.showMessageDialog(this, 
+                winner + " wins!\nScore: " + p1 + ": " + p1score + " | " + p2 + ": " + p2score,
+                "Game Over", JOptionPane.INFORMATION_MESSAGE);
+            
+        } else if (checkDraw() == true) {
+            gameOver = true;
+            JOptionPane.showMessageDialog(this, 
+                "It's a draw!\nScore: " + p1 + ": " + p1score + " | " + p2 + ": " + p2score,
+                "Game Over", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            if (turn.equals("X")) {
+                turn = "O";
+                currentturn.setText(p2 + "'s turn (" + turn + ")");
+            } else {
+                turn = "X";
+                currentturn.setText(p1 + "'s turn (" + turn + ")");
+            }
+        }
+    }
+    
+    private boolean checkWin() {
+        // rows
+        if (b1.getText().equals(b2.getText()) && b2.getText().equals(b3.getText()) && !b1.getText().equals("")) {
+            return true;
+        }
+        if (b4.getText().equals(b5.getText()) && b5.getText().equals(b6.getText()) && !b4.getText().equals("")) {
+            return true;
+        }
+        if (b7.getText().equals(b8.getText()) && b8.getText().equals(b9.getText()) && !b7.getText().equals("")) {
+            return true;
+        }
+        
+        // columns
+        if (b1.getText().equals(b4.getText()) && b4.getText().equals(b7.getText()) && !b1.getText().equals("")) {
+            return true;
+        }
+        if (b2.getText().equals(b5.getText()) && b5.getText().equals(b8.getText()) && !b2.getText().equals("")) {
+            return true;
+        }
+        if (b3.getText().equals(b6.getText()) && b6.getText().equals(b9.getText()) && !b3.getText().equals("")) {
+            return true;
+        }
+        
+        // diagonals
+        if (b1.getText().equals(b5.getText()) && b5.getText().equals(b9.getText()) && !b1.getText().equals("")) {
+            return true;
+        }
+        if (b3.getText().equals(b5.getText()) && b5.getText().equals(b7.getText()) && !b3.getText().equals("")) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    private boolean checkDraw() {
+        if (b1.getText().equals("") || b2.getText().equals("") || b3.getText().equals("") ||
+            b4.getText().equals("") || b5.getText().equals("") || b6.getText().equals("") ||
+            b7.getText().equals("") || b8.getText().equals("") || b9.getText().equals("")) {
+            return false;
+        }
+        return true;
+    }
+    
+    private void resetGame() {
+        gameOver = false;
+        turn = "X";
+        
+        b1.setText("");
+        b2.setText("");
+        b3.setText("");
+        b4.setText("");
+        b5.setText("");
+        b6.setText("");
+        b7.setText("");
+        b8.setText("");
+        b9.setText("");
+        
+        b1.setBackground(Color.WHITE);
+        b2.setBackground(Color.WHITE);
+        b3.setBackground(Color.WHITE);
+        b4.setBackground(Color.WHITE);
+        b5.setBackground(Color.WHITE);
+        b6.setBackground(Color.WHITE);
+        b7.setBackground(Color.WHITE);
+        b8.setBackground(Color.WHITE);
+        b9.setBackground(Color.WHITE);
+        
+        b1.setForeground(Color.BLACK);
+        b2.setForeground(Color.BLACK);
+        b3.setForeground(Color.BLACK);
+        b4.setForeground(Color.BLACK);
+        b5.setForeground(Color.BLACK);
+        b6.setForeground(Color.BLACK);
+        b7.setForeground(Color.BLACK);
+        b8.setForeground(Color.BLACK);
+        b9.setForeground(Color.BLACK);
+    }
+    
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        makeMove(b5);
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        makeMove(b1);
+    }//GEN-LAST:event_b1ActionPerformed
+
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
+        makeMove(b2);
+    }//GEN-LAST:event_b2ActionPerformed
+
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
+        makeMove(b3);
+    }//GEN-LAST:event_b3ActionPerformed
+
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
+        makeMove(b6);
+    }//GEN-LAST:event_b6ActionPerformed
+
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+        makeMove(b4);
+    }//GEN-LAST:event_b4ActionPerformed
+
+    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
+        makeMove(b7);
+    }//GEN-LAST:event_b7ActionPerformed
+
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+        makeMove(b8);
+    }//GEN-LAST:event_b8ActionPerformed
+
+    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
+        makeMove(b9);
+    }//GEN-LAST:event_b9ActionPerformed
+
+    private void newgameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newgameActionPerformed
+        resetGame();
+    }//GEN-LAST:event_newgameActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            javax.swing.UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new app().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b2;
+    private javax.swing.JButton b3;
+    private javax.swing.JButton b4;
+    private javax.swing.JButton b5;
+    private javax.swing.JButton b6;
+    private javax.swing.JButton b7;
+    private javax.swing.JButton b8;
+    private javax.swing.JButton b9;
+    private javax.swing.JLabel currentturn;
+    private javax.swing.JLabel currentturnlabel;
+    private javax.swing.JButton newgame;
+    private javax.swing.JLabel p1scorelabel;
+    private javax.swing.JLabel p2scorelabel;
     // End of variables declaration//GEN-END:variables
 }
